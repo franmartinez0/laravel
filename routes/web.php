@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IncidenciaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('hola');
 });
+
+//Route::get('/incidencias', [IncidenciaController::class, 'index']);
+//para borrar cada uno
+Route::get('/incidencias/delete/{id}', [IncidenciaController::class, 'destroy']);
+
+Route::resource('incidencias', IncidenciaController::class);
